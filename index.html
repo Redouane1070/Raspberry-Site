@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="code.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+    </head>
+    <body style="background-color:#34568B">    
+        
+        <div id="timer" class="timer"></div>  
+        <script>
+            setInterval(timer, 1000);
+        </script>
+
+        <div class="mode">
+            <button class="button" onclick="set_mode(0)">Intermediate</button>
+            <button class="button" onclick="set_mode(1)">Advanced</button>
+            <button class="button" onclick=set_mode(2)>Expert</button>
+            <button class="button" onclick=set_mode(3)>Grandmaster</button>
+        </div>
+
+        <div id="table_container" class="table_container"></div>
+        <div class="reset">
+            <button class="reset_button" onclick="reset()">Reset level</button>
+        </div>
+
+    </body>
+</html>
