@@ -80,7 +80,12 @@ function table_ongoing(table){ // Function to generate the html code for the tab
         let row_html = `<tr class="items">`;
         for (let j = 0; j < COL; j++) {
             if (table[i][j][1] == 0) {
-                row_html += `<td class="item0"></td>`;
+                if (((i == 2) && (j == 5)) || ((i == 2) && (j == 4))) {
+                     row_html += `<td class="item0">&#10140</td>`;
+                }
+                else{
+                     row_html += `<td class="item0"></td>`;
+                }
             }
             else {
                 let button_sym = ""
