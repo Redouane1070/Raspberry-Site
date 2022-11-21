@@ -158,6 +158,27 @@ function table_won(table) { // Function to generate the html code for the table 
         row_html += "</tr>";
         table_inner_html_won += row_html
     }
+    return table_inner_html_won
+}
+
+
+
+function generate_table_html(table) {
+    let table_inner_html = ""; 
+    let level_name = "";
+    if (level == 0) {
+        level_name = "Intermediate";
+    }
+    else if (level == 1) {
+        level_name = "Advanced";
+    }
+    else if (level == 2) {
+        level_name = "Expert";
+    }
+    else if (level == 3) {
+        level_name = "Grand Master";
+    };
+
     let min = Math.floor(time / 60);
     let sec = time % 60;
     let time_str;
@@ -169,22 +190,15 @@ function table_won(table) { // Function to generate the html code for the table 
     }
     else {
         time_str = `${min} minutes and ${sec} seconds`;
-    }
-    return `<h1 class="win">Congratulations! You won this level after ${time_str} using ${moves} moves!</h1><table class="table_won">${table_inner_html_won}</table>`
+    };
 
-}
-
-
-
-function generate_table_html(table) {
-    let table_inner_html = "";
     if (game_won == false) { // If game is still ongoing, generates the html table with onclick buttons.
         table_inner_html += table_ongoing(table);
-        return `<table class="table">${table_inner_html}</table>`;
+        return `<h1 class="actual_level">Playing <u>${level_name} Level</u></h1><table class="table">${table_inner_html}</table>`;
     }
     else { // If game is won, generates the html table without onclick buttons. And add a game won message.
         table_inner_html += table_won(table);
-        return table_inner_html;
+        return `<h1 class="win">Congratulations! You won the <u>${level_name} level</u> after ${time_str} using ${moves} moves!</h1><table class="table_won">${table_inner_html}</table>`
     }
 
 }
