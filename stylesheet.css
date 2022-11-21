@@ -87,7 +87,6 @@
 }
 
 .table{
-    border: 3px solid black;
     width: 485px;
     height: 485px;
     margin: auto;
@@ -102,7 +101,8 @@
     margin-top: -5px;
     background-color: black
 }
-.item_red {
+
+.item_red1 {
     background-color: red;
     width: 75px;
     height: 75px;
@@ -112,7 +112,38 @@
     color:black;
     font-weight:bolder;
     font-size:xx-large;
-}.item_brown {
+    border-bottom: 4px solid #00FFD1;
+    border-left: 4px solid #00FFD1;
+    border-top: 4px solid #00FFD1;
+    animation-name: blinking_red;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+}.item_red2 {
+    background-color: red;
+    width: 75px;
+    height: 75px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: normal;
+    color:black;
+    font-weight:bolder;
+    font-size:xx-large;
+    border-bottom: 4px solid #00FFD1;
+    border-right: 4px solid #00FFD1;
+    border-top: 4px solid #00FFD1;
+    animation-name: blinking_red;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+}
+
+@keyframes blinking_red {
+    50% {
+      border-color: red;
+    }
+}
+
+
+.item_brown {
     background-color: #5C4033;
     width: 75px;
     height: 75px;
@@ -232,4 +263,6 @@
     color:black;
     font-weight:bolder;
     font-size:xx-large;
+}#item_exit {
+    border-right: 6px solid #00FFD1;
 }
