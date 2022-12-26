@@ -1,0 +1,26 @@
+name: Deploy to Raspberry Pi
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build assets
+        run: npm run build
+      - name: Deploy to Raspberry Pi
+        uses: appleboy/scp-action@v1
+        with:
+          host: 192.168.1.33
+          username: redouane
+          password: 220011
+          source: dist/*
+          target: /var/www/html
+      - name: Restart web server
+        run: ssh pi@raspberrypi.local "systemctl restart apache2"
