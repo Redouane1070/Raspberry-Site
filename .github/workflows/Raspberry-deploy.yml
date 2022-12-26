@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build assets
-        run: npm run build
       - name: Deploy to Raspberry Pi
         uses: appleboy/scp-action@master
         with:
